@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use App\Models\Comment;
 
@@ -28,8 +28,8 @@ class Controller extends BaseController
         // post user comment to database
          $this->validate($request,[
             'comment' => 'required',
-            // 'created at',
-            // 'visitor',
+            'created at',
+            'visitor',
          ]);
     }
     public function destroy($id)
