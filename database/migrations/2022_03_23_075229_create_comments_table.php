@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->engine='InnoDB';
+            $table->bigIncrements('id');
+            $table->text('comment',500);
+            $table->timestamp('created_at')->useCurrent();
+            $table->ipAddress('visitor');   
+            // $table->timestamps();
         });
     }
 
