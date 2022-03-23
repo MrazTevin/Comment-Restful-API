@@ -13,6 +13,14 @@
 |
 */
 
+
+$router->get('/comments', 'CommentController@index');
+$router->get('/comments/{id}', 'CommentController@show');
+$router->post('/comments/create', 'CommentController@store');
+$router->put('/comments/update/{id}', 'CommentController@update');
+$router->delete('/comments/delete{id}', 'CommentController@destroy ');
+
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
