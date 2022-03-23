@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->text('comment',500);
             $table->timestamp('created_at')->useCurrent();
-            $table->ipAddress('visitor');   
+            $table->ipAddress('visitor')->nullable();   
             // $table->timestamps();
         });
     }
