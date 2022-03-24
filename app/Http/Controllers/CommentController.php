@@ -50,8 +50,8 @@ class CommentController extends Controller
     public function show($id)
     {
         // return 1 comment from the table
-        $comment = Comment::find($id);
-        return response()->json($comment);
+        $comments = Comment::find($id);
+        return response()->json($comments);
     }
 
     /**
@@ -75,6 +75,7 @@ class CommentController extends Controller
     public function update(Request $request, $id)
     {
         //
+       
     }
 
     /**
@@ -85,6 +86,10 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // delete comment
+        $comments = Comment::find($id);
+        $comments->delete();
+        return response()->json("deleted comment successfully"); 
+
     }
 }
