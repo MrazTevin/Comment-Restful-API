@@ -2,6 +2,8 @@
 
 namespace   App\Traits;
 
+
+// gets the users Ip address
 class PickIpTrait 
 {
     private $ipAddress = null;
