@@ -13,14 +13,20 @@
 |
 */
 
-
-$router->get('/comments', 'CommentController@index');
-$router->get('/comments/{id}', 'CommentController@show');
-$router->post('/comments/create', 'CommentController@store');
-$router->put('/comments/update/{id}', 'CommentController@update');
-$router->delete('/comments/delete{id}', 'CommentController@destroy ');
-
-
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('/comments',  ['uses' => 'CommentController@showAllComments']);
+    $router->get('/comments/{id}', ['uses' => 'CommentController@showOneComment']);
+    $router->post('/comments', ['uses' => 'CommentController@store']);
+    $router->put('/comments/{id}', ['uses' => 'CommentController@update']);
+    $router->delete('/comments/{id}', ['uses' => 'CommentController@destroy']);
+});
+
+// $router->get('/comments', 'CommentController@index');
+// $router->get('/comments/{id}', 'CommentController@show');
+// $router->post('/comments/create', 'CommentController@store');
+// $router->put('/comments/update/{id}', 'CommentController@update');
+// $router->delete('/comments/delete{id}', 'CommentController@destroy ');
