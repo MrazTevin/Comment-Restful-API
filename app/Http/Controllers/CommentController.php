@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
 class CommentController extends Controller
 {
@@ -13,7 +14,10 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        //return all comments from database
+        $comments = Comment::all();
+        return response()->json($comments);
+
     }
 
     /**
@@ -45,7 +49,9 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        // return 1 comment from the table
+        $comment = Comment::find($id);
+        return response()->json($comment);
     }
 
     /**
