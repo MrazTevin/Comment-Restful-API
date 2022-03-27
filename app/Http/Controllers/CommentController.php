@@ -11,7 +11,9 @@ class CommentController extends Controller
     public function showAllComments()
     {
         //similar to how default index works
-        return response()->json("works");
+
+        $comments = Comment::all();
+       // return response()->json("works");
     }
 
     public function store(Request $request)
