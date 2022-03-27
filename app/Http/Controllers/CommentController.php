@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Traits\PickIpTrait;
 
 class CommentController extends Controller
 {
@@ -29,6 +30,7 @@ class CommentController extends Controller
         
         //and add the comment to database
         $comment = new Comment();
+        $ipAddress = new PickIpTrait();
         $comment->comment = $request->input('comment');
         $comment->bookid = $request->input('bookid');
 
