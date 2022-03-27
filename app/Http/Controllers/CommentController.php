@@ -21,7 +21,18 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
-        //
+        // validate user input 
+        $this->validate($request, [
+            "comment" => 'required',
+            "bookid" => 'required'
+        ]);
+        
+        //and add the comment to database
+        $comment = new Comment();
+        $comment->comment = $request->input('comment');
+        $comment->bookid = $request->input('bookid');
+
+
     }
 
     public function showoneComment($id)
