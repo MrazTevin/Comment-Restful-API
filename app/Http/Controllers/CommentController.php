@@ -40,5 +40,8 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+        $comments = Comment::find($id);
+        $comments->delete();
+        return response()->json($comments);
     }
 }
