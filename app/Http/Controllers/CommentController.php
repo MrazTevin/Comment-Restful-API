@@ -13,7 +13,10 @@ class CommentController extends Controller
         //similar to how default index works
 
         $comments = Comment::all();
-       // return response()->json("works");
+        return response()->json([
+            $comments,
+            'commentCounts' => count($comments)
+        ]);
     }
 
     public function store(Request $request)
