@@ -27,6 +27,8 @@ class CommentController extends Controller
     public function showoneComment($id)
     {
         //
+        $comments = Comment::find($id);
+        return response()->json($comments);
     }
 
     public function update(Request $request, $id)
