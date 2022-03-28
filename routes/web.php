@@ -20,7 +20,7 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
     $router->get('/comments',  ['uses' => 'CommentController@showAllComments']);
     $router->get('/comments/{id}', ['uses' => 'CommentController@showOneComment']);
-    $router->post('/comments', ['uses' => 'CommentController@store ']);
+    $router->post('/comments', ['uses' => 'CommentController@createComment']);
     $router->put('/comments/{id}', ['uses' => 'CommentController@update']);
     $router->delete('/comments/{id}', ['uses' => 'CommentController@destroy']);
 });
