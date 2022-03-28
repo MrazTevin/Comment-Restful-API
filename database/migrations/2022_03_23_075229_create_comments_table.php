@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -19,9 +20,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('bookid',8);
             $table->text('comment',500);
-            $table->timestamp('created_at',6)->useCurrent();
-            $table->ipAddress('visitor',45)->nullable();   
-            // $table->timestamps();
+            $table->string('date_added',50);
+            $table->string('visitor',45)->nullable();   
         });
     }
 
