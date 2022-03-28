@@ -6,11 +6,13 @@ namespace   App\Traits;
 // gets the users Ip address
 class PickIpTrait 
 {
-    private $ipAddress = null;
 
 
     public function getClientIp()
     {
+
+        $ipAddress = ' ';
+
         if(!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ipAddress = $_SERVER['HTTP_CLIENT_IP'];  
         } elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -19,6 +21,7 @@ class PickIpTrait
             $ipAddress=$_SERVER['REMOTE_ADDR'];
         }
 
+        
         return $ipAddress;
     }
   
