@@ -2,12 +2,16 @@
 
  This project was for a Backend Engineer Technical Assessment project using Lumen PHP Framework.
 
-# About
+## About
 This custom API is to be used together with the IceFire API to enable the user to tag a comment along listed books. This API is built base on the Lumen PhP Microframework and has been tested using the Insomnia rest tool.
 
 
 > The API has been deployed to the `HEROKU cloud platform`.  It's accessible through the link below :
 > * [DEPLOYED](https://blooming-mesa-56911.herokuapp.com/api/v1/comments) - HEROKU INSTANCE USED
+
+## Official Documentation
+> Please see [APIDOCS.md](https://github.com/MrazTevin/Comment-Restful-API/blob/master/APIDOCS.md) for more details
+  on the endpoints provided by this app
 
 ## Comment Requirements
 
