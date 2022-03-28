@@ -23,6 +23,7 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
     $router->post('/comments', ['uses' => 'CommentController@createComment']);
     $router->put('/comments/{id}', ['uses' => 'CommentController@update']);
     $router->delete('/comments/{id}', ['uses' => 'CommentController@destroy']);
+    $router->get('/showBooks',  ['uses' => 'BookController@showBooks']);
 });
 
 // $router->get('/comments', 'CommentController@index');

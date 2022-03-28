@@ -11,11 +11,13 @@ use Illuminate\Support\Facades\DB;
 class CommentController extends Controller
 {
     
-    public function showAllComments()
+    public function showAllComments($bookid)
     {
         //similar to how default index works
 
+        $comments = DB::select('select * from comments where bookId = ?', [$bookid]);
         $comments = Comment::all();
+
         return response()->json([
             $comments,
             'commentCounts' => count($comments)
