@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
-use App\Traits\PickIpTrait;
+use App\Traits\UtcTime;
+use Illuminate\Support\Facades\DB;
+
 
 class CommentController extends Controller
 {
@@ -20,20 +22,47 @@ class CommentController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function createComment(Request $request)
     {
         // validate user input 
         $this->validate($request, [
+            "bookid" => 'required',
             "comment" => 'required',
-            "bookid" => 'required'
-        ]);
-        
+            "visitor" => '',
+            "date_added" => ''
+        ]);      
         //and add the comment to database
-        $comment = new Comment();
-        $ipAddress = new PickIpTrait();
-        $comment->comment = $request->input('comment');
-        $comment->bookid = $request->input('bookid');
+        $comment = new Comment();   
+        $timezone = new UtcTime();
+    ;
+        if($request->filled('bookId') && $request->filled('comment')) {
+            $comment->bookid = $request->input('bookid');
+            $comment->comment = $request->input('comment');
+            $comment->date_added = $timezone->getTime();
+            $comment->visitor = $request->ip();
+            $comment->save();
 
+        } else  {
+
+                $comment->bookid = $request->input('bookid');
+                $comment->comment = $request->input('comment');
+                $comment->date_added = $timezone->getTime();
+                $comment->visitor = $request->ip();
+            
+        }
+
+        DB::insert('insert into comments (bookId, comment, date_added, visitor) values (?, ?, ?, ?)', 
+            [
+                $comment->bookid,
+                $comment->comment,
+                $comment->date_added,
+                $comment->visitor
+            ]
+        );
+
+
+
+    return response()->json($comment,201);
 
     }
 
@@ -44,10 +73,10 @@ class CommentController extends Controller
         return response()->json($comments);
     }
 
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    // }
 
  
     public function destroy($id)
