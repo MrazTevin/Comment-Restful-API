@@ -1,6 +1,6 @@
 # COMMENT API
 
-The API to serve the IceFire React app with the data on the books, authors and characters from the Ice And Fire universe and also store and fetch comments from an SQL database. This project was for a Backend Engineer Technical Assessment project using Lumen PHP Framework.
+ This project was for a Backend Engineer Technical Assessment project using Lumen PHP Framework.
 
 # About
 This custom API is to be used together with the IceFire API to enable the user to tag a comment along listed books. This API is built base on the Lumen PhP Microframework and has been tested using the Insomnia rest tool.
