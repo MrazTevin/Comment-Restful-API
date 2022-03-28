@@ -9,16 +9,17 @@ This custom API is to be used together with the IceFire API to enable the user t
 > The API has been deployed to the `HEROKU cloud platform`.  It's accessible through the link below :
 > * [DEPLOYED](https://blooming-mesa-56911.herokuapp.com/api/v1/comments) - HEROKU INSTANCE USED
 
-## Requirements
+## Comment Requirements
 
 ```
-  1.The application should have basic documentation that lists available endpoints and methods along with their request and response signatures
-  2.The exact API design in terms of the total number of endpoints and HTTP verbs is upto you
-  3.Keep your application source code on a public repository
-  4.Provide a Live demo URL, you could spin up a virtual server on AWS, Digital Ocean or Heroku instance
-  5.Comments should be stored in a SQL database
-  6.Comments should be retrieved along with public IP address of the commenter and the UTC date and time they were stored
-  7.Comment length should be limited to 500 characters
+  1.The application should have basic documentation that lists available endpoints and methods along with their request and response signatures.
+  2.The exact API design in terms of the total number of endpoints and HTTP verbs is upto you.
+  3.Keep your application source code on a public repository.
+  4.Provide a Live demo URL, you could spin up a virtual server on AWS, Digital Ocean or Heroku instance.
+  5.Comments should be stored in a SQL database.
+  6.Comments should be retrieved along with public IP address of the commenter and the UTC date and time they were stored.
+  7.Comment length should be limited to 500 characters.
+  8.The comments should be retrieved in a reverse chronological order.
 
 ```
 
